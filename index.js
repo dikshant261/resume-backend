@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(
     cors({
-      origin: "http://localhost:5173", // Allow requests from your frontend
+      origin: "https://bespoke-froyo-d6ab33.netlify.app/", // Allow requests from your frontend
       methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
       credentials: true, // If you're using cookies or authorization headers
     })
