@@ -8,12 +8,21 @@ const app = express();
 app.use(express.json());
 
 app.use(
-    cors({
-      origin: "https://bespoke-froyo-d6ab33.netlify.app/", // Allow requests from your frontend
-      methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
-      credentials: true, // If you're using cookies or authorization headers
-    })
-  );
+  cors({
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "https://bespoke-froyo-d6ab33.netlify.app",
+      ]; // List of allowed origins
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // If using cookies or headers like Authorization
+  })
+);
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
