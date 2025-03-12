@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       const allowedOrigins = [
-        "https://resume-backend-83nf.onrender.com",
+        "https://bespoke-froyo-d6ab33.netlify.app",
       ]; // List of allowed origins
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
