@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       const allowedOrigins = [
-        "http://localhost:5173",
+        "https://resume-backend-83nf.onrender.com",
       ]; // List of allowed origins
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
