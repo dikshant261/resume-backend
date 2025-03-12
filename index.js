@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       const allowedOrigins = [
-        "https://bespoke-froyo-d6ab33.netlify.app",
+        "http://localhost:5173",
       ]; // List of allowed origins
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
